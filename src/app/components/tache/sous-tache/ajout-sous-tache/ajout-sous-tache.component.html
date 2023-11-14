@@ -1,0 +1,25 @@
+<app-home></app-home>
+
+  <br> 
+  <br>
+  <br>
+  <br>
+  <div class="add-task">
+    <button type="button" class="btn btn-outline-success btn" (click)="openAjoutSubTask()" data-bs-toggle="modal">Ajouter une sous Tache</button></div>
+    <br>
+    <button type="button" class="btn btn-outline-primary" [routerLink]="['/projet', idProject, 'ajout-tache']">Retour à la liste des taches</button>
+    
+    <h2 class="text-secondary fs-2 fw-bold fst-italic center">Projet : {{ projetActuel?.nomProjet }}</h2>
+    <h3 class="text-secondary fs-2 fw-bold fst-italic center">Tache : {{ libelle }}</h3>
+
+    <div class="row mt-5" *ngIf=" subTasks==undefined  || subTasks.length ==0">
+      <div class="col text-center">
+        <span class="text-secondary fs-2 fw-bold fst-italic">Aucune sous tâche n'a été ajoutée !</span>
+      </div>
+    </div>
+    <div class="row mt-4" *ngIf="subTasks && subTasks.length >0" > 
+      <div class="col">
+        <app-list-sub-task [projetActuel]="projetActuel"></app-list-sub-task>
+      </div>
+    </div>
+  

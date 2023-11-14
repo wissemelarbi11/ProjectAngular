@@ -1,0 +1,126 @@
+<app-home></app-home>
+
+<br>
+<div class="search-employees">
+    <input type="search" class="form-control" placeholder="Search Employees"
+        (input)="searchEmployees(searchInput.value)" #searchInput>
+</div>
+<br><br><br>
+<button type="button" class="btn btn-outline-success btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    #addEmployeeButton>Ajouter employé</button>
+
+
+<div class="row mt-5" *ngIf="employees.length == 0">
+    <div class="col text-center">
+        <span class="text-secondary fs-2 fw-bold fst-italic">There are no employees added!</span>
+    </div>
+</div>
+<div class="row mt-4" *ngFor="let employee of employeesToDisplay; let ei = index;">
+    <div class="col">
+        <app-employeelist [employee]="employee" (onRemoveEmployee)="removeEmployee($event)"
+            (onEditEmployee)="editEmployee($event)"></app-employeelist>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter employé</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="employeeForm">
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label">Nom</label>
+                            <input type="text" class="form-control" placeholder="Nom" formControlName="Nom">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">Prénom</label>
+                            <input type="text" class="form-control" placeholder="Prénom" formControlName="Prenom">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h6 class="text-secondary fst-italic">Informations personelles</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="datepicker" class="form-label">Date de naissance</label>
+                            <input formControlName="birthdate" type="date" class="form-control" id="datepicker">
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <h6 class="text-secondary">Genre</h6>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="genre" id="male" value="m"
+                                            formControlName="genre">
+                                        <label class="form-check-label" for="male">M.</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="genre" id="female" value="f"
+                                            formControlName="genre">
+                                        <label class="form-check-label" for="male">Mme.</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                           
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="email" formControlName="email">
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row">
+                            <h6 class="text-secondary">Role</h6>
+                        </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="emp" value="emp"
+                                    formControlName="role">
+                                <label class="form-check-label" for="emp">Employé</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="admin" value="admin"
+                                    formControlName="role">
+                                <label class="form-check-label" for="admin">Administrateur</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="profile" class="form-label">Image de profile</label>
+                            <input type="file" class="form-control" id="profile" #fileInput>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="addEmployee()">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,346 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "nomProjet": "projet 1",
+      "heureVendu": 100,
+      "progression": 125,
+      "echeance": "2023-08-28",
+      "statut": "Terminé",
+      "employes": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "taches": [
+        {
+          "id": 1,
+          "libelle": "tache 1",
+          "heureVendu": 20,
+          "progression": 50,
+          "statut": "Terminé",
+          "employes": [
+            1,
+            2
+          ],
+          "sousTaches": [
+            {
+              "id": 1,
+              "libelle": "sous tache 1",
+              "heureVendu": 8,
+              "progression": 50,
+              "statut": "Terminé",
+              "employes": [
+                1,
+                2
+              ],
+              "spenttime": 3
+            }
+          ],
+          "spenttime": 3
+        },
+        {
+          "id": 2,
+          "libelle": "tache 2",
+          "heureVendu": 5,
+          "progression": 25,
+          "statut": "Terminé",
+          "employes": [
+            2,
+            3,
+            4
+          ],
+          "spenttime": 8
+        }
+      ],
+      "spenttime": 11
+    },
+    {
+      "id": 2,
+      "nomProjet": "projet 2",
+      "heureVendu": 100,
+      "progression": 300,
+      "echeance": "2023-08-28",
+      "statut": "Terminé",
+      "employes": [
+        1,
+        2,
+        5
+      ],
+      "taches": [
+        {
+          "id": 1,
+          "libelle": "tache1",
+          "heureVendu": 10,
+          "progression": 100,
+          "statut": "Terminé",
+          "employes": [
+            5
+          ],
+          "spenttime": 50
+        }
+      ],
+      "spenttime": 50
+    },
+    {
+      "id": 3,
+      "nomProjet": "projet3",
+      "heureVendu": 100,
+      "progression": 200,
+      "echeance": "2023-09-12",
+      "statut": "En cours",
+      "employes": [
+        1,
+        2
+      ],
+      "taches": [
+        {
+          "id": 1,
+          "libelle": "tache 1",
+          "heureVendu": 20,
+          "progression": 100,
+          "statut": "Terminé",
+          "employes": [
+            1,
+            2
+          ],
+          "spenttime": 20,
+          "sousTaches": [
+            {
+              "id": 1,
+              "libelle": "sous tache 1",
+              "heureVendu": 10,
+              "progression": 100,
+              "statut": "Terminé",
+              "employes": [
+                1
+              ],
+              "spenttime": 20
+            }
+          ]
+        }
+      ],
+      "spenttime": 20
+    },
+    {
+      "id": 33,
+      "nomProjet": "33",
+      "heureVendu": 33,
+      "progression": 100,
+      "echeance": "2023-08-26",
+      "statut": "Terminé",
+      "employes": [
+        3,
+        4,
+        5
+      ],
+      "taches": [
+        {
+          "id": 2,
+          "libelle": "22",
+          "heureVendu": 2222,
+          "progression": 50,
+          "statut": "Terminé",
+          "employes": [
+            3,
+            4,
+            5
+          ],
+          "sousTaches": [
+            {
+              "id": 220,
+              "libelle": "220",
+              "heureVendu": 3,
+              "progression": 50,
+              "statut": "Terminé",
+              "employes": [
+                3
+              ],
+              "spenttime": 3
+            }
+          ],
+          "spenttime": 3
+        },
+        {
+          "id": "",
+          "libelle": "",
+          "heureVendu": 3,
+          "progression": 25,
+          "statut": "Terminé",
+          "employes": [
+            3
+          ],
+          "spenttime": 3
+        }
+      ],
+      "spenttime": 6
+    },
+    {
+      "id": 123,
+      "nomProjet": "projet123",
+      "heureVendu": 55,
+      "progression": 100,
+      "echeance": "2023-08-28",
+      "statut": "En cours",
+      "employes": [
+        4
+      ],
+      "taches": [
+        {
+          "id": 1,
+          "libelle": "correction",
+          "heureVendu": 10,
+          "progression": 100,
+          "statut": "En cours",
+          "employes": [
+            4
+          ],
+          "spenttime": null,
+          "sousTaches": [
+            {
+              "id": 1,
+              "libelle": "calcul",
+              "heureVendu": 5,
+              "progression": null,
+              "statut": "En cours",
+              "employes": [
+                4
+              ],
+              "spenttime": 0
+            }
+          ]
+        }
+      ],
+      "spenttime": 0
+    },
+    {
+      "id": 15,
+      "nomProjet": "hotel",
+      "heureVendu": 15,
+      "progression": 50,
+      "echeance": "2024-01-05",
+      "statut": "Crée",
+      "employes": [
+        3,
+        4
+      ],
+      "taches": [
+        {
+          "id": 12,
+          "libelle": "correction",
+          "heureVendu": 4,
+          "progression": 50,
+          "statut": "En cours",
+          "employes": [
+            4
+          ],
+          "sousTaches": [
+            {
+              "id": 16,
+              "libelle": "plan",
+              "heureVendu": 1,
+              "progression": null,
+              "statut": "En cours",
+              "employes": [
+                4
+              ],
+              "spenttime": 0
+            }
+          ],
+          "spenttime": 0
+        },
+        {
+          "id": 13,
+          "libelle": "isolation",
+          "heureVendu": 5,
+          "progression": 25,
+          "statut": "Terminé",
+          "employes": [
+            3
+          ],
+          "spenttime": 5
+        }
+      ],
+      "spenttime": 5
+    },
+    {
+      "id": 12052,
+      "nomProjet": "Projet Batiment",
+      "heureVendu": 3,
+      "progression": 100,
+      "echeance": "2023-09-30",
+      "statut": "Terminé",
+      "employes": [
+        6
+      ],
+      "taches": [
+        {
+          "id": 1478,
+          "libelle": "isolation",
+          "heureVendu": 2,
+          "progression": 100,
+          "statut": "Terminé",
+          "employes": [
+            6
+          ],
+          "sousTaches": [
+            {
+              "id": 963,
+              "libelle": "plan C",
+              "heureVendu": 2,
+              "progression": 100,
+              "statut": "Terminé",
+              "employes": [
+                6
+              ],
+              "spenttime": 2
+            }
+          ],
+          "spenttime": 2
+        }
+      ],
+      "spenttime": 2
+    }
+  ],
+  "employees": [
+    {
+      "Nom": "kamel",
+      "birthdate": "",
+      "Prenom": "mekki",
+      "genre": "m",
+      "email": "",
+      "role": "admin",
+      "id": 3
+    },
+    {
+      "Nom": "rim",
+      "birthdate": "",
+      "Prenom": "rim",
+      "genre": "f",
+      "email": "",
+      "role": "emp",
+      "profile": "ss.PNG",
+      "id": 4
+    },
+    {
+      "Nom": "test",
+      "birthdate": "2023-08-02",
+      "Prenom": "test",
+      "genre": "f",
+      "email": "tets1233",
+      "role": "emp",
+      "id": 5
+    },
+    {
+      "Nom": "wissem",
+      "birthdate": "2000-02-06",
+      "Prenom": "elarbi",
+      "genre": "m",
+      "email": "wissem.elarbi@esprit.tn",
+      "role": "emp",
+      "profile": "272912890_3223725234579000_3676414976301512514_n-removebg-preview.png",
+      "id": 6
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<app-home></app-home>
+
+<br> 
+<br>
+<br>
+<br>
+<div class="add-task">
+  <button type="button" class="btn btn-outline-success btn" (click)="openAjoutTask()" data-bs-toggle="modal">Ajouter Tache</button></div>
+  <br>
+  <button type="button" class="btn btn-outline-primary" routerLink="/projectlist">Retour à la liste</button>
+  
+  <h2 class="text-secondary fs-2 fw-bold fst-italic center">Projet : {{ projetActuel?.nomProjet }}</h2>
+
+  <div class="row mt-5" *ngIf="taches.length ==0">
+    <div class="col text-center">
+      <span class="text-secondary fs-2 fw-bold fst-italic">Aucune tâche n'a été ajoutée !</span>
+    </div>
+  </div>
+  <div class="row mt-4" *ngIf="taches.length >0" > 
+    <div class="col">
+      
+      <app-tachelist *ngIf="projetActuel && projetActuel.taches" [idProject]="idProject" [projetActuel]="projetActuel" [taches]="projetActuel.taches"></app-tachelist>
+    </div>
+  </div>

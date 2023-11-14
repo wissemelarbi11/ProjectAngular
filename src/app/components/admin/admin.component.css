@@ -1,0 +1,22 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #95ddba;
+    color: white;
+    font-weight: 600;
+    transform: translate(0%,2%);
+  }
+  .bold-button{
+    transform: translate(0%,800%);
+    width: 500px; /* Largeur du bouton */
+    height: 50px; /* Hauteur du bouton */
+    margin-left: 50px;
+    font-weight: bold;
+    margin-right: 100px;
+
+  }

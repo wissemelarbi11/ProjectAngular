@@ -1,0 +1,45 @@
+<div mat-dialog-title>
+    <h2>Ajouter une tàche</h2>
+</div>
+<mat-dialog-content>
+    <form [formGroup]="taskForm">
+        <div mat-dialog-content class="content">
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label for="id">Ref Tàche</mat-label>
+                    <input matInput type="number" placeholder="Ex. Ref18072023" formControlName="id" id="id">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label for="libelle">Nom tàche</mat-label>
+                    <input matInput type="text" placeholder="Ex. Tache1" formControlName="libelle" id="libelle">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label for="heureVendu">heure Vendu</mat-label>
+                    <input matInput type="number" placeholder="Ex.20" formControlName="heureVendu" id="heureVendu">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>Sélectionnez les employés</mat-label>
+                    <mat-select formControlName="employes" multiple>
+                        <mat-option *ngFor="let employe of employes" [value]="employe.id">
+                            {{ employe.Nom }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+
+        <div mat-dialog-actions class="action">
+            <button mat-raised-button type="button" class="btn btn-outline-danger"
+                [mat-dialog-close]="false">Annuler</button>
+            <button [mat-dialog-close]="true" mat-raised-button class="btn btn-outline-primary"
+                (click)="saveTask()">Ajouter</button>
+        </div>
+    </form>
+</mat-dialog-content>

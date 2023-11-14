@@ -1,0 +1,115 @@
+<app-home></app-home>
+
+
+
+<br>
+<br>
+<br>
+<h2  >Liste des projets</h2>
+<br>
+<br>
+<button   class="btn btn-outline-success" (click)="openAjoutProject()">
+  Ajouter projet
+</button>
+
+<app-ajoutemployee *ngIf="clickemp"></app-ajoutemployee>
+
+<div class="mat-elevation-z8"  >
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nomProjet">
+      <th mat-header-cell *matHeaderCellDef> Nom Projet </th>
+      <td mat-cell *matCellDef="let element" (click)="onConsulte(element)"> {{element.nomProjet}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="heureVendu">
+      <th mat-header-cell *matHeaderCellDef> Heure Vendu </th>
+      <td mat-cell *matCellDef="let element"> {{element.heureVendu}} </td>
+    </ng-container>
+
+    <!-- Echeance Column -->
+    <ng-container matColumnDef="echeance">
+      <th mat-header-cell *matHeaderCellDef> Date d'échéance </th>
+      <td mat-cell *matCellDef="let element">
+
+        <span  *ngIf="isOverdue(element) && element.statut !== 'Terminé'" class="red-bold">
+          {{ element.echeance | date: 'dd/MM/yyyy' }}</span>
+        <span *ngIf="!isOverdue(element)">{{ element.echeance | date: 'dd/MM/yyyy' }} </span>
+          <mat-icon  class="red-icon" *ngIf="isOverdue(element) && element.statut !== 'Terminé'">warning</mat-icon>
+      </td>
+    </ng-container>
+
+
+
+    <!-- status Column -->
+    <ng-container matColumnDef="statut">
+      <th mat-header-cell *matHeaderCellDef> Statut </th>
+      <td mat-cell *matCellDef="let element"> {{element.statut}} </td>
+    </ng-container>
+
+        <!-- status Column -->
+        <ng-container matColumnDef="spenttime">
+          <th mat-header-cell *matHeaderCellDef> Temps passé </th>
+          <td mat-cell *matCellDef="let element"> {{element.spenttime}} heures</td>
+        </ng-container>
+
+    <!-- Progression Column -->
+    <ng-container matColumnDef="progression">
+      <th mat-header-cell *matHeaderCellDef> Progression </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.statut!='Terminé'" class="progress-container">
+          <mat-progress-bar mode="determinate" class="progress-bar" [value]="element.progression"></mat-progress-bar>
+          <div *ngIf="element.progression < 100 " class="progress-value">{{ element.progression }}%</div>
+          <div *ngIf="element.progression > 100 " class="progress-value">100%</div>
+        </div>
+        <div *ngIf="element.statut=='Terminé'" class="progress-container">
+          <mat-progress-bar mode="determinate" class="progress-bar" value="100">
+          </mat-progress-bar>
+          <div class="progress-value">100%</div>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Employees Column -->
+    <ng-container matColumnDef="employees">
+      <th mat-header-cell *matHeaderCellDef> Employés </th>
+      <td mat-cell *matCellDef="let project">
+        <span>{{ getEmployeeNames(project.employes) }}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let row">
+     <!--  <button [disabled]="row.statut === 'Terminé'" mat-icon-button class="btn btn-outline-success">
+          <mat-icon>edit</mat-icon>
+        </button>-->
+        <button [disabled]="row.statut === 'Terminé' || row.statut === 'En cours'" mat-icon-button
+          class="btn btn-outline-danger" (click)="deleteProject(row.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button class="btn btn-outline-primary" [routerLink]="['/projet', row.id, 'ajout-tache']">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button class="btn btn-outline-primary" [routerLink]="['/chart', row.id]">
+          <mat-icon>insert_chart</mat-icon>
+                </button>
+        
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 15, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
