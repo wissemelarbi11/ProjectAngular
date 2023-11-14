@@ -55,6 +55,7 @@ import { ChartProjectComponent } from './components/projet/chart-project/chart-p
 import { NgChartsModule } from 'ng2-charts';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const ROUTES: Routes = [
@@ -72,7 +73,8 @@ const ROUTES: Routes = [
   { path: 'projet/:idProject/ajout-tache', component: AjouttacheComponent },
   {path: 'projet/:idProject/sous-tache/:idTask', component: AjoutSousTacheComponent},
   { path: 'test', component: TestComponent },
-  { path: 'chart/:idProject', component: ChartProjectComponent}
+  { path: 'chart/:idProject', component: ChartProjectComponent},
+  { path: 'dashboard', component: DashboardComponent}
 ]
 
 @NgModule({
@@ -104,6 +106,7 @@ const ROUTES: Routes = [
     EditStatusTaskComponent,
     ChartProjectComponent,
     HomeComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
