@@ -2,7 +2,7 @@ FROM node:20.5.0 AS builder
 WORKDIR /app
 COPY . .
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --force
 RUN npm run build --prod
 # stage 2
 FROM nginx:alpine
